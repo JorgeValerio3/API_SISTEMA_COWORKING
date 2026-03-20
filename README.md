@@ -1,132 +1,132 @@
-# 🏢 Coworking System API
+# 🏢 API de Sistema de Coworking
 
-A professional RESTful API for a coworking space reservation system, built with **Node.js**, **Express**, **TypeScript**, **MySQL**, and **Redis**. This project was developed as a technical practice for a Backend developer role.
-
----
-
-## 🚀 Key Features
-
-- **🔐 User Authentication**: Secure registration, login, and logout using JWT and HTTP-only cookies.
-- **📍 Space Management**: Filter spaces by location, type, capacity, and real-time availability.
-- **📅 Booking Flow**: Create, list, get details, cancel, and extend bookings.
-- **⚡ Performance**: Integrated Redis for caching and high-speed data access.
-- **🛠️ Admin Panel**: Exclusive access for administrators to monitor all bookings, system stats, and space updates.
-- **📧 Notifications**: Automated email notifications via Nodemailer.
-- **🛡️ Security**: Helmet, CORS, and Rate Limiting implemented for protection.
-- **📖 API Documentation**: Auto-generated documentation with Swagger UI.
+Una API RESTful profesional para un sistema de reserva de espacios de coworking, construida con **Node.js**, **Express**, **TypeScript**, **MySQL** y **Redis**. Este proyecto fue desarrollado como una práctica técnica para un rol de desarrollador Backend.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Características Clave
 
-- **Core**: [Node.js](https://nodejs.org/) & [Express 5](https://expressjs.com/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Database**: [MySQL 8.0](https://www.mysql.com/)
-- **Cache**: [Redis](https://redis.io/)
-- **Validation**: [Zod](https://zod.dev/)
-- **Documentation**: [Swagger](https://swagger.io/)
-- **Infrastructure**: [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
-- **Testing**: [Jest](https://jestjs.io/) & [Supertest](https://github.com/ladjs/supertest)
+- **🔐 Autenticación de Usuarios**: Registro, inicio de sesión y cierre de sesión seguros utilizando JWT y cookies HTTP-only.
+- **📍 Gestión de Espacios**: Filtro de espacios por ubicación, tipo, capacidad y disponibilidad en tiempo real.
+- **📅 Flujo de Reservas**: Crear, listar, obtener detalles, cancelar y extender reservas.
+- **⚡ Rendimiento**: Redis integrado para almacenamiento en caché y acceso a datos de alta velocidad.
+- **🛠️ Panel de Administración**: Acceso exclusivo para administradores para monitorear todas las reservas, estadísticas del sistema y actualizaciones de espacios.
+- **📧 Notificaciones**: Notificaciones automáticas por correo electrónico vía Nodemailer.
+- **🛡️ Seguridad**: Implementación de Helmet, CORS y Rate Limiting para protección.
+- **📖 Documentación de la API**: Documentación autogenerada con Swagger UI.
 
 ---
 
-## ⚙️ Prerequisites
+## 🛠️ Stack Tecnológico
 
-Ensure you have the following installed:
-- [Docker & Docker Compose](https://www.docker.com/products/docker-desktop)
-- [Node.js](https://nodejs.org/) (v18+ recommended, for local development)
+- **Núcleo**: [Node.js](https://nodejs.org/) y [Express 5](https://expressjs.com/)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Base de Datos**: [MySQL 8.0](https://www.mysql.com/)
+- **Caché**: [Redis](https://redis.io/)
+- **Validación**: [Zod](https://zod.dev/)
+- **Documentación**: [Swagger](https://swagger.io/)
+- **Infraestructura**: [Docker](https://www.docker.com/) y [Docker Compose](https://docs.docker.com/compose/)
+- **Pruebas**: [Jest](https://jestjs.io/) y [Supertest](https://github.com/ladjs/supertest)
+
+---
+
+## ⚙️ Prerrequisitos
+
+Asegúrate de tener instalado lo siguiente:
+- [Docker y Docker Compose](https://www.docker.com/products/docker-desktop)
+- [Node.js](https://nodejs.org/) (se recomienda v18+ para desarrollo local)
 - [npm](https://www.npmjs.com/)
 
 ---
 
-## 🐳 Getting Started (with Docker)
+## 🐳 Primeros Pasos (con Docker)
 
-The easiest way to get the project running is using Docker Compose, which orchestrates the API, MySQL, and Redis services.
+La forma más fácil de poner en marcha el proyecto es utilizando Docker Compose, que orquesta los servicios de la API, MySQL y Redis.
 
-1. **Clone the repository**:
+1. **Clonar el repositorio**:
    ```bash
-   git clone https://github.com/your-username/API_Sistema_Coworkink.git
+   git clone https://github.com/tu-usuario/API_Sistema_Coworkink.git
    cd API_Sistema_Coworkink
    ```
 
-2. **Configure environment variables**:
-   Create a `.env` file in the `backend/` directory (you can use `.env.example` as a template).
+2. **Configurar variables de entorno**:
+   Crea un archivo `.env` en el directorio `backend/` (puedes usar `.env.example` como plantilla).
 
-3. **Start the services**:
+3. **Iniciar los servicios**:
    ```bash
    docker-compose up --build
    ```
 
-4. **Access the API**:
-   - The API will be available at `http://localhost:5000`
-   - Swagger documentation: [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
+4. **Acceder a la API**:
+   - La API estará disponible en `http://localhost:5000`
+   - Documentación Swagger: [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
 
 ---
 
-## 💻 Local Development Setup
+## 💻 Configuración de Desarrollo Local
 
-If you prefer to run the services individually:
+Si prefieres ejecutar los servicios individualmente:
 
-1. **Database & Cache**: Ensure you have MySQL and Redis running on your machine.
-2. **Setup Backend**:
+1. **Base de Datos y Caché**: Asegúrate de tener MySQL y Redis ejecutándose en tu máquina.
+2. **Configurar Backend**:
    ```bash
    cd backend
    npm install
    ```
-3. **Configure Environment**: Copy `.env.example` to `.env` and fill in your local credentials.
-4. **Run in Development**:
+3. **Configurar Entorno**: Copia `.env.example` a `.env` y completa tus credenciales locales.
+4. **Ejecutar en Desarrollo**:
    ```bash
    npm run dev
    ```
 
 ---
 
-## 📝 Environment Variables
+## 📝 Variables de Entorno
 
-The project requires the following environment variables (defined in `backend/.env`):
+El proyecto requiere las siguientes variables de entorno (definidas en `backend/.env`):
 
-| Variable | Description | Example |
+| Variable | Descripción | Ejemplo |
 | :--- | :--- | :--- |
-| `PORT` | API Port | `5000` |
-| `DB_HOST` | MySQL database host | `localhost` or `db` |
-| `DB_USER` | MySQL database user | `root` |
-| `DB_PASSWORD` | MySQL database password | `root` |
-| `DB_NAME` | Database name | `srec2` |
-| `JWT_SECRET` | Secret key for JWT tokens | `your_secret_here` |
-| `MAIL_USER` | Email for notifications | `example@mail.com` |
-| `MAIL_APP_PASSWORD` | App-specific password for email | `xxxx xxxx xxxx xxxx` |
+| `PORT` | Puerto de la API | `5000` |
+| `DB_HOST` | Host de la base de datos MySQL | `localhost` o `db` |
+| `DB_USER` | Usuario de la base de datos MySQL | `root` |
+| `DB_PASSWORD` | Contraseña de la base de datos MySQL | `root` |
+| `DB_NAME` | Nombre de la base de datos | `srec2` |
+| `JWT_SECRET` | Clave secreta para tokens JWT | `tu_secreto_aqui` |
+| `MAIL_USER` | Correo para notificaciones | `ejemplo@mail.com` |
+| `MAIL_APP_PASSWORD` | Contraseña de aplicación para correo | `xxxx xxxx xxxx xxxx` |
 
 ---
 
-## 🛤️ API Endpoints Summary
+## 🛤️ Resumen de Endpoints de la API
 
-Below are the main categories of endpoints. For full details and schemas, visit the `/api-docs` route.
+A continuación se presentan las categorías principales de endpoints. Para obtener detalles completos y esquemas, visita la ruta `/api-docs`.
 
-### Auth
-- `POST /api/auth/register` - Create a new account.
-- `POST /api/auth/login` - Authenticate and get a session cookie.
-- `POST /api/auth/logout` - Clear the session.
+### Autenticación (Auth)
+- `POST /api/auth/register` - Crear una nueva cuenta.
+- `POST /api/auth/login` - Autenticar y obtener una cookie de sesión.
+- `POST /api/auth/logout` - Limpiar la sesión.
 
-### Spaces
-- `GET /api/spaces` - List all coworking spaces.
-- `GET /api/spaces/location/:id` - Filter by location.
-- `GET /api/spaces/availability` - Check available spaces for a date/time.
+### Espacios (Spaces)
+- `GET /api/spaces` - Listar todos los espacios de coworking.
+- `GET /api/spaces/location/:id` - Filtrar por ubicación.
+- `GET /api/spaces/availability` - Consultar espacios disponibles por fecha/hora.
 
-### Bookings
-- `POST /api/bookings` - Reserve a space.
-- `GET /api/bookings` - View my bookings.
-- `PUT /api/bookings/:id/cancel` - Cancel a reservation.
-- `PATCH /api/bookings/:id/extend` - Extend an ongoing booking.
+### Reservas (Bookings)
+- `POST /api/bookings` - Reservar un espacio.
+- `GET /api/bookings` - Ver mis reservas.
+- `PUT /api/bookings/:id/cancel` - Cancelar una reserva.
+- `PATCH /api/bookings/:id/extend` - Extender una reserva en curso.
 
-### Admin
-- `GET /api/admin/bookings` - View all bookings across the system.
-- `GET /api/admin/stats` - Get system usage statistics.
+### Administración (Admin)
+- `GET /api/admin/bookings` - Ver todas las reservas del sistema.
+- `GET /api/admin/stats` - Obtener estadísticas de uso del sistema.
 
 ---
 
-## 🧪 Testing
+## 🧪 Pruebas (Testing)
 
-Run the automated test suite using Jest:
+Ejecuta el conjunto de pruebas automatizadas usando Jest:
 ```bash
 cd backend
 npm test
@@ -134,27 +134,27 @@ npm test
 
 ---
 
-## 📂 Project Structure
+## 📂 Estructura del Proyecto
 
 ```text
-├── backend/            # Main application source code
-│   ├── config/         # App configurations (DB, Swagger, etc.)
-│   ├── controllers/    # Request handling logic
-│   ├── middlewares/    # Custom Express middlewares
-│   ├── models/         # Database models & access
-│   ├── routes/         # Express route definitions
-│   ├── schemas/        # Zod validation schemas
-│   └── app.ts          # Main entry point
-├── bbdd/               # Database initialization scripts
-└── docker-compose.yml  # Docker orchestration
+├── backend/            # Código fuente de la aplicación principal
+│   ├── config/         # Configuraciones de la app (DB, Swagger, etc.)
+│   ├── controllers/    # Lógica de manejo de solicitudes
+│   ├── middlewares/    # Middlewares personalizados de Express
+│   ├── models/         # Modelos de base de datos y acceso
+│   ├── routes/         # Definiciones de rutas de Express
+│   ├── schemas/        # Esquemas de validación de Zod
+│   └── app.ts          # Punto de entrada principal
+├── bbdd/               # Scripts de inicialización de la base de datos
+└── docker-compose.yml  # Orquestación de Docker
 ```
 
 ---
 
-## 📜 License
+## 📜 Licencia
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distribuido bajo la Licencia MIT. Consulta `LICENSE` para más información.
 
 ---
 
-**Developed with ❤️ by [JorgeValerio3](https://github.com/JorgeValerio3)**
+**Desarrollado por [JorgeValerio3](https://github.com/JorgeValerio3)**
