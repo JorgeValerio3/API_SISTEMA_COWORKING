@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./backend
+    container_name: coworking_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=srec2
+      - DB_PORT=3306
+      - REDIS_URL=redis://redis:6379
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+    networks:
+      - coworking-net
+    restart: always
+
+  db:
+    image: mysql:8.0
+    container_name: coworking_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: srec2
+    volumes:
+      - ./bbdd:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - coworking-net
+
+  redis:
+    image: redis:alpine
+    container_name: coworking_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - coworking-net
+    restart: always
+
+networks:
+  coworking-net:
+    driver: bridge
+
+volumes:
+  db_data:
